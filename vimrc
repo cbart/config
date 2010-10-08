@@ -6,4 +6,5 @@ filetype plugin on
 filetype indent on
 syntax on
 
-
+" User interface
+colorscheme ir_black
