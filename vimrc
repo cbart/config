@@ -33,6 +33,7 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set expandtab
+inoremap {<cr> {<cr>}<esc>0i<up><end><cr>
 
 "
 " User interface
