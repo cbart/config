@@ -47,7 +47,7 @@ set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set nowrap
 set number
-set guifont=Inconsolata\ 8
+set guifont=Inconsolata\ 9
 set showmatch
 set scrolloff=3
 set foldenable
@@ -81,6 +81,8 @@ cmap Q q
 cmap Tabe tabe
 
 set wildmode=list:longest:full
+
+map <F2> :NERDTreeToggle<CR>
 
 "function! SuperCleverTab()
 "    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
