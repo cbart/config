@@ -3,6 +3,11 @@
 " Maintainer:	Tim Pope <vimNOSPAM@tpope.org>
 " Last Change:	2010 May 21
 
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
 if exists("b:did_indent")
   finish
 endif
