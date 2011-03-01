@@ -41,24 +41,24 @@ set expandtab
 "
 
 " Color scheme
-colorscheme molokai
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=green
+colorscheme desert  " torte koehler desert
 set cursorline
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set nowrap
 set number
-set guifont=Inconsolata\ 9
+set guifont=Inconsolata\ 10
 set showmatch
 set scrolloff=3
 set foldenable
 
+" MATCH
+
 " Highlight trailing whitespace while cursor not at row end
 " Highlight all tabs
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$\|\t/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$\|\t/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\|\t/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$\|\t/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Allow for cursor beyond last char
@@ -84,18 +84,29 @@ set wildmode=list:longest:full
 
 map <F2> :NERDTreeToggle<CR>
 
-"function! SuperCleverTab()
-"    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-"        return "\<Tab>"
-"    else
-"        if &omnifunc != ''
-"            return "\<C-X>\<C-O>"
-"        elseif &dictionary != ''
-"            return "\<C-K>"
-"        else
-"            return "\<C-N>"
-"        endif
-"    endif
-"endfunction
-"
-"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+" SCROLL
+" default = no scroll
+
+set guioptions -=r
+set guioptions -=l
+set guioptions -=R
+set guioptions -=L
+
+" TOOLBAR
+" default = no toolbar
+" Show/hide Ctrl+F2
+
+set guioptions -=T
+set guioptions -=m
+map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
+                         \set guioptions-=T <Bar>
+                         \set guioptions-=m <bar>
+                    \else <Bar>
+                         \set guioptions+=T <Bar>
+                         \set guioptions+=m <Bar>
+                      \endif<CR>
+
+" HASKELL
+autocmd BufEnter *.hs compiler ghc
+let g:haddock_browser = "/usr/bin/google-chrome"
+let g:ghc = "/usr/bin/ghc"
