@@ -18,9 +18,9 @@ set smartindent
 " Encoding
 "
 
-set fencs=utf-8
-set enc=utf-8
-set termencoding=utf-8
+"set fencs=utf-8
+"set enc=utf-8
+"set termencoding=utf-8
 
 "
 " Interaction
@@ -41,8 +41,12 @@ set expandtab
 "
 
 " Color scheme
+<<<<<<< HEAD
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=green
 colorscheme desert  " torte koehler desert
+=======
+"colorscheme molokai
+>>>>>>> LBNF added
 set cursorline
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
@@ -52,6 +56,7 @@ set guifont=Inconsolata\ 10
 set showmatch
 set scrolloff=3
 set foldenable
+hi Normal guibg=#030303
 
 " MATCH
 
@@ -65,7 +70,7 @@ autocmd BufWinLeave * call clearmatches()
 set virtualedit=onemore
 
 " Spell checking
-set spell
+"set spell
 
 " Backup settings
 set backup
@@ -107,6 +112,25 @@ map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
                       \endif<CR>
 
 " HASKELL
-autocmd BufEnter *.hs compiler ghc
-let g:haddock_browser = "/usr/bin/google-chrome"
-let g:ghc = "/usr/bin/ghc"
+"autocmd BufEnter *.hs compiler ghc
+"let g:haddock_browser = "/usr/bin/google-chrome"
+"let g:ghc = "/usr/bin/ghc"
+
+" LBNF
+autocmd BufReadPre,BufNewFile *.cf set ft=lbnf
+
+"function! SuperCleverTab()
+"    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+"        return "\<Tab>"
+"    else
+"        if &omnifunc != ''
+"            return "\<C-X>\<C-O>"
+"        elseif &dictionary != ''
+"            return "\<C-K>"
+"        else
+"            return "\<C-N>"
+"        endif
+"    endif
+"endfunction
+"
+"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
