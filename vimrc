@@ -41,12 +41,8 @@ set expandtab
 "
 
 " Color scheme
-<<<<<<< HEAD
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=green
 colorscheme desert  " torte koehler desert
-=======
-"colorscheme molokai
->>>>>>> LBNF added
 set cursorline
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
