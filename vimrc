@@ -119,6 +119,9 @@ endif
 " LBNF
 autocmd BufReadPre,BufNewFile *.cf set ft=lbnf
 
+" Markdown
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+
 "function! SuperCleverTab()
 "    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
 "        return "\<Tab>"
