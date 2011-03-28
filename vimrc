@@ -88,24 +88,28 @@ map <F2> :NERDTreeToggle<CR>
 " SCROLL
 " default = no scroll
 
-set guioptions -=r
-set guioptions -=l
-set guioptions -=R
-set guioptions -=L
+if has("gui_running")
+    set guioptions -=r
+    set guioptions -=l
+    set guioptions -=R
+    set guioptions -=L
+endif
 
 " TOOLBAR
 " default = no toolbar
 " Show/hide Ctrl+F2
 
-set guioptions -=T
-set guioptions -=m
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-                         \set guioptions-=T <Bar>
-                         \set guioptions-=m <bar>
-                    \else <Bar>
-                         \set guioptions+=T <Bar>
-                         \set guioptions+=m <Bar>
-                      \endif<CR>
+if has("gui_running")
+    set guioptions -=T
+    set guioptions -=m
+    map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
+                             \set guioptions-=T <Bar>
+                             \set guioptions-=m <bar>
+                        \else <Bar>
+                             \set guioptions+=T <Bar>
+                             \set guioptions+=m <Bar>
+                          \endif<CR>
+endif
 
 " HASKELL
 "autocmd BufEnter *.hs compiler ghc
