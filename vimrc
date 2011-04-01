@@ -43,6 +43,7 @@ set expandtab
 " Color scheme
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=green
 colorscheme desert  " torte koehler desert
+
 set cursorline
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
