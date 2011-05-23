@@ -114,7 +114,7 @@ endif
 
 " HASKELL
 "autocmd BufEnter *.hs compiler ghc
-"let g:haddock_browser = "/usr/bin/google-chrome"
+let g:haddock_browser = "/usr/bin/google-chrome"
 "let g:ghc = "/usr/bin/ghc"
 
 " LBNF
@@ -122,6 +122,9 @@ autocmd BufReadPre,BufNewFile *.cf set ft=lbnf
 
 " Markdown
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$', '\.hi$', '\.o$']
 
 "function! SuperCleverTab()
 "    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
