@@ -42,18 +42,25 @@ set expandtab
 
 " Color scheme
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=green
-colorscheme desert  " torte koehler desert
+if has("gui_running")
+    set background=dark
+else
+    set background=dark
+end
+let g:solarized_termcolors=256
+set t_Co=16
+colorscheme solarized  "desert torte koehler desert
 
 set cursorline
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set nowrap
 set number
-set guifont=Inconsolata\ 10
+set guifont=Inconsolata\ 11
 set showmatch
 set scrolloff=3
 set foldenable
-hi Normal guibg=#030303
+" hi Normal guibg=#030303
 
 " MATCH
 
